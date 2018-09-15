@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 project(opengl-sandbox)
 
+set(OpenGL_GL_REFERENCE "GLVND")
+
+find_package(OpenGL REQUIRED)
+
 if( CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR )
     message( FATAL_ERROR "Select other build directory for example build/" )
 endif()
@@ -20,7 +24,8 @@ option(GLFW_BUILD_TESTS OFF)
 add_subdirectory(ext/glfw)
 
 include_directories(ext/glfw/include/
-                    ext/glad/include/)
+                    ext/glad/include/
+                    src/)
 
 file(GLOB GLAD_FILE ext/glad/src/glad.c)
 file(GLOB PROJECT_FILES src/*.cpp)
@@ -29,4 +34,4 @@ add_definitions(-DGLFW_INCLUDE_NONE)
 
 add_executable(${PROJECT_NAME} ${PROJECT_FILES} ${GLAD_FILE})
 
-target_link_libraries(${PROJECT_NAME} glfw ${GLFW_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARY} glfw ${GLFW_LIBRARIES})
