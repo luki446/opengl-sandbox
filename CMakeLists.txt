@@ -25,6 +25,7 @@ add_subdirectory(ext/glfw)
 
 include_directories(ext/glfw/include/
                     ext/glad/include/
+					ext/glm/
                     src/)
 
 file(GLOB GLAD_FILE ext/glad/src/glad.c)
