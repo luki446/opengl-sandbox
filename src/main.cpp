@@ -1,10 +1,10 @@
+
 #include <cstdio>
 #include <cstdlib>
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 const GLuint WIDTH = 860, HEIGHT = 640;
-
 int main(int argc, char* argv[])
 {
     if(glfwInit() == 0)

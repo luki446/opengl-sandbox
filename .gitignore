@@ -2,3 +2,9 @@ build/
 .vscode/
 .vs/
 bin/
+obj/
+*.make
+*.vcxproj
+*.sln
+*.vcxproj.user
+Makefile
